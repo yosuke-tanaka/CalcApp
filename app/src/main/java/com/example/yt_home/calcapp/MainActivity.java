@@ -22,8 +22,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mEditText1 = (EditText) findViewById(R.id.editText1);
         mEditText2 = (EditText) findViewById(R.id.editText2);
         // 2016.08.24 [修正] EditTextの入力を数値に制限
-        mEditText1.setInputType( InputType.TYPE_CLASS_NUMBER);
-        mEditText2.setInputType( InputType.TYPE_CLASS_NUMBER);
+        // 2016.08.25 [修正] 小数、マイナス値も入力可能なように修正
+        //mEditText1.setInputType( InputType.TYPE_CLASS_NUMBER);
+        //mEditText2.setInputType( InputType.TYPE_CLASS_NUMBER);
+        mEditText1.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        mEditText2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 
         Button button1 = (Button) findViewById(R.id.button1);
         button1.setOnClickListener(this);
